@@ -32,7 +32,7 @@ def exchange(plaintext: bytes, ciphertext: bytes, new_plaintext: bytes) -> bytes
     return new_plaintext
 
 
-def prst(plaintext: bytes, ciphertext: bytes):
+def prst(plaintext: bytes, ciphertext: bytes): #Это я для себя делал если что
     plaintext_new = plaintext.split()
     print(plaintext_new)
 
