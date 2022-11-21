@@ -32,7 +32,9 @@ def exchange(plaintext: bytes, ciphertext: bytes, new_plaintext: bytes) -> bytes
     return new_plaintext
 
 
-
+def prst(plaintext: bytes, ciphertext: bytes):
+    plaintext_new = plaintext.split()
+    print(plaintext_new)
 
 
 
@@ -56,5 +58,6 @@ if __name__ == "__main__":
     print(f"New plaintext:      {new_plaintext}")
     print(f"New ciphertext:     {new_ciphertext}")
     print(f"Exchanged worked:   {new_ciphertext == expected_ciphertext}")
+    prst(plaintext, ciphertext)
 
 
