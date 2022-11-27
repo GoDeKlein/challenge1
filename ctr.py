@@ -30,7 +30,7 @@ def exchange(plaintext: bytes, ciphertext: bytes, new_plaintext: bytes) -> bytes
     encryption_one = xor(ciphertext_one, plaintext_one)
     encryption_two = xor(ciphertext_two, plaintext_two)
     new_plaintext_one = new_plaintext[:int(len(new_plaintext) / 2)]
-    new_plaintext_two = new_plaintext[int(len(new_plaintext) / 2):len(new_plaintext)]
+    new_plaintext_two = new_plaintext[int(len(new_plaintext) / 2):]
     new_ciphertext = (xor(encryption_one, new_plaintext_one)) + (xor(encryption_two, new_plaintext_two))
     return new_ciphertext
 
