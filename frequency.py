@@ -1,6 +1,6 @@
 # Name: 
 # Matriculation number: 
-
+import re
 def countLetters(text: str) -> dict[str, int]:
     '''
     Args:
@@ -9,7 +9,18 @@ def countLetters(text: str) -> dict[str, int]:
     Returns:
         Dictionary with number of occurrences for every letter (as lowercase)
     '''
-    pass
+
+    alfabet = "abcdefghijklmnopqrstuvwxyz"
+    l = list()
+    for sword in alfabet:
+        l.append(sword)
+    alfabet = dict.fromkeys(l, 0)
+    d = dict()
+    new_text = ''.join(re.findall('[A-z]', text))
+    for i in new_text:
+        d[i.lower()] = text.count(i)
+    alfabet_ = {**alfabet, **d}
+    return alfabet_
 
 
 def convertToFrequency(letter_counts: dict[str, int]) -> dict[str, float]:
@@ -20,7 +31,12 @@ def convertToFrequency(letter_counts: dict[str, int]) -> dict[str, float]:
     Returns:
         Dictionary with the frequency of occurrence for every letter (as lowercase)
     '''
-    pass
+    sum = 0
+    for key in letter_counts:
+        sum+= letter_counts[key]
+    frequencies = {key: (letter_counts[key] / sum) for key in letter_counts}
+    return frequencies
+
 
 
 def plotLetterFreq(frequencies: dict[str, float], file=None) -> None:
