@@ -1,8 +1,4 @@
-
-
-def task2():
-    pass
-
+#Exercise 2.c
 def task3():
 
     e = 65537
@@ -22,17 +18,6 @@ def task3():
     print(d)
     print((5**884)%N)
 
-
-
 if __name__ == "__main__":
-    #Exercise 2.a
-    print("Exercise 2.a")
-    if task1() is True:
-        print("Following parameters form a valid RSA key")
-    else:
-        print("Following parameters don`t form a valid RSA key")
-    print()
-    # Exercise 2.b
 
-    #Exercise 2.c
     task3()

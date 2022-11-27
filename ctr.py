@@ -23,18 +23,26 @@ def exchange(plaintext: bytes, ciphertext: bytes, new_plaintext: bytes) -> bytes
         our new ciphertext
     '''
 
+    ciphertext_one = ciphertext[:int(len(ciphertext) / 2)]
+    ciphertext_two = ciphertext[int(len(ciphertext) / 2):len(ciphertext)]
+    plaintext_one = plaintext[:int(len(plaintext) / 2)]
+    plaintext_two = plaintext[int(len(plaintext) / 2):len(plaintext)]
+    encryption_one = xor(ciphertext_one, plaintext_one)
+    encryption_two = xor(ciphertext_two, plaintext_two)
+    new_plaintext_one = new_plaintext[:int(len(new_plaintext) / 2)]
+    new_plaintext_two = new_plaintext[int(len(new_plaintext) / 2):len(new_plaintext)]
+    new_ciphertext = (xor(encryption_one, new_plaintext_one)) + (xor(encryption_two, new_plaintext_two))
+    return new_ciphertext
 
-    encryption: bytes = xor(ciphertext, plaintext)
-    new_plaintext = new_plaintext.split()
-    new_ciphertext1: bytes = xor(bytes(new_plaintext[0]), encryption)
-    new_ciphertext2: bytes = xor(bytes(new_plaintext[1]), encryption)
-    new_plaintext = new_ciphertext1 + new_ciphertext2
-    return new_plaintext
 
 
 def prst(plaintext: bytes, ciphertext: bytes): #Это я для себя делал если что
-    plaintext_new = plaintext.split()
-    print(plaintext_new)
+    ciphertext_one = ciphertext[:int(len(ciphertext)/2)]
+    ciphertext_two = ciphertext[int(len(ciphertext)/2):len(ciphertext)]
+    print(ciphertext_one)
+    print(ciphertext_two)
+    plaintext_one = plaintext[:int(len(plaintext)/2)]
+    print(plaintext_one)
 
 
 
@@ -58,6 +66,8 @@ if __name__ == "__main__":
     print(f"New plaintext:      {new_plaintext}")
     print(f"New ciphertext:     {new_ciphertext}")
     print(f"Exchanged worked:   {new_ciphertext == expected_ciphertext}")
+
     prst(plaintext, ciphertext)
+
 
 
